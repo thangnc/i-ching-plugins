@@ -1,0 +1,24 @@
+{
+  "name": "luc-hao-bat-quai",
+  "owner": {
+    "name": "thangnc"
+  },
+  "metadata": {
+    "description": "Hệ thống luận giải quẻ Lục Hào theo Ngũ Hành Bát Quái — Vietnamese I Ching divination",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "luc-hao-bat-quai",
+      "source": "./",
+      "description": "Hệ thống luận giải quẻ Lục Hào theo Ngũ Hành Bát Quái — Vietnamese I Ching divination and hexagram interpretation",
+      "version": "1.0.0",
+      "author": {
+        "name": "thangnc"
+      },
+      "repository": "https://github.com/thangnc/luc-hao-bat-quai",
+      "license": "MIT",
+      "keywords": ["i-ching", "divination", "bat-quai", "ngu-hanh", "luc-hao", "vietnamese", "fortune-telling"]
+    }
+  ]
+}
