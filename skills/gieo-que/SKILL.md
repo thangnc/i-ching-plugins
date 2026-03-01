@@ -9,7 +9,11 @@ Skill này được kích hoạt tự động khi Claude nhận diện người 
 
 ## Hành động
 
-Thực hiện đúng quy trình gieo quẻ như lệnh `/gieo-que`. Tham khảo file `${CLAUDE_PLUGIN_ROOT}/commands/gieo-que.md` để thực hiện đầy đủ các bước:
+Thực hiện đúng quy trình gieo quẻ như lệnh `/gieo-que`.
+
+Tra bảng chi tiết (nạp giáp, nạp chi, 64 quẻ, cung quẻ, lục thần, nạp âm) tại: `${CLAUDE_PLUGIN_ROOT}/skills/gieo-que/references/bang-tra-cuu.md`
+
+Tham khảo quy trình tại: `${CLAUDE_PLUGIN_ROOT}/commands/gieo-que.md`
 
 1. Thu thập thông tin (họ tên, ngày sinh, giới tính, câu hỏi)
 2. Lập Tứ Trụ (Bát Tự)

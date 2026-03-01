@@ -9,7 +9,10 @@ Skill này được kích hoạt tự động khi Claude nhận diện người 
 
 ## Hành động
 
-Thực hiện đúng quy trình luận giải như lệnh `/luan-giai`. Tham khảo file `${CLAUDE_PLUGIN_ROOT}/commands/luan-giai.md` để thực hiện đầy đủ các bước:
+Thực hiện luận giải như lệnh `/luan-giai`.
+
+Tra quy tắc chi tiết tại: `${CLAUDE_PLUGIN_ROOT}/skills/luan-giai/references/quy-tac-luan-giai.md`
+Tham khảo quy trình tại: `${CLAUDE_PLUGIN_ROOT}/commands/luan-giai.md`
 
 1. Xác định Dụng Thần theo lĩnh vực hỏi
 2. Phân tích Vượng Suy (Nguyệt kiến, Nhật thần)

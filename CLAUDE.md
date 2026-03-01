@@ -13,24 +13,29 @@ This is a **Claude Code plugin** (not a traditional software project) providing 
   plugin.json       # Plugin metadata and entry points
   marketplace.json  # Marketplace listing info
 commands/
-  gieo-que.md       # Slash command: /gieo-que
-  luan-giai.md      # Slash command: /luan-giai
+  gieo-que.md       # Slash command: /gieo-que (concise prompt + output format)
+  luan-giai.md      # Slash command: /luan-giai (concise prompt + output format)
 skills/
-  gieo-que/SKILL.md   # Auto-trigger skill for casting hexagrams
-  luan-giai/SKILL.md  # Auto-trigger skill for interpreting hexagrams
+  gieo-que/
+    SKILL.md                        # Auto-trigger recognizer
+    references/bang-tra-cuu.md      # Lookup tables (Nạp Giáp, Nạp Chi, 64 hexagrams, Nạp Âm, etc.)
+  luan-giai/
+    SKILL.md                        # Auto-trigger recognizer
+    references/quy-tac-luan-giai.md # Interpretation rules (Dụng Thần, Vượng Suy, special cases, etc.)
 ```
 
 ## Plugin Architecture
 
-The plugin has two entry-point types:
+Three-tier design:
 
-- **`commands/`** — Detailed instruction sets invoked explicitly via `/gieo-que` and `/luan-giai` slash commands. These hold the full divination logic.
-- **`skills/`** — Lightweight natural-language recognizers that auto-trigger on contextual keywords. Skills detect intent from conversational input and then execute the detailed logic in `commands/`.
+1. **`skills/*/SKILL.md`** — Natural-language trigger recognizers. Auto-activate on keywords ("gieo quẻ", "luận giải"...). Lightweight — delegate execution to commands and reference files.
+2. **`commands/*.md`** — Concise prompts with `$ARGUMENTS` and fixed output format. Instruct Claude to answer directly without explaining theory.
+3. **`skills/*/references/*.md`** — Static lookup tables and rule sets. Referenced via `${CLAUDE_PLUGIN_ROOT}/skills/.../references/...` inside SKILL.md.
 
-| | Commands | Skills |
-|---|---|---|
-| **Activation** | User types `/gieo-que` or `/luan-giai` | Claude detects natural language ("gieo quẻ cho tôi") |
-| **Role** | Full detailed instructions | Trigger recognizer → delegates to commands |
+| | Skills | Commands | References |
+|---|---|---|---|
+| **Role** | Trigger recognizer | Concise execution prompt | Data tables & rules |
+| **Activation** | Natural language | `/gieo-que`, `/luan-giai` | Loaded by skills/commands |
 
 **Usage flows:**
 ```
@@ -39,29 +44,17 @@ The plugin has two entry-point types:
 /luan-giai + manual hexagram data        # Interpret an existing hexagram
 ```
 
-## Skill Front Matter Format
+## File Formats
 
+**Skill front matter:**
 ```yaml
 ---
 name: skill-name
-description: >
-  Trigger description including keywords that activate this skill.
+description: Trigger description with keywords that activate this skill.
 ---
 ```
 
-## Command Format
-
-```yaml
----
-description: Short description
----
-
-# Title
-
-1. Step one
-2. Step two
-...
-```
+**Command format** — concise prompt using `$ARGUMENTS`, direct output instructions, fixed emoji-prefixed sections.
 
 ## Domain Knowledge
 
@@ -79,7 +72,9 @@ Copy the plugin directory into `.claude/plugins/` or install via the Claude mark
 ## What to Edit
 
 When modifying this plugin:
-- **Divination logic or tables** → edit `commands/gieo-que.md` or `commands/luan-giai.md` (detailed logic lives here)
-- **Natural language trigger keywords** → edit the `description` front matter in `skills/gieo-que/SKILL.md` or `skills/luan-giai/SKILL.md`
-- **Plugin metadata, versioning, keywords** → edit `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json` (keep them in sync)
+- **Lookup tables** (Nạp Giáp, Nạp Chi, 64 hexagrams, Nạp Âm, etc.) → `skills/gieo-que/references/bang-tra-cuu.md`
+- **Interpretation rules** (Dụng Thần, Vượng Suy, special cases, priority order) → `skills/luan-giai/references/quy-tac-luan-giai.md`
+- **Output format or prompt behavior** → `commands/gieo-que.md` or `commands/luan-giai.md`
+- **Natural language trigger keywords** → `description` front matter in `skills/*/SKILL.md`
+- **Plugin metadata, versioning** → `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json` (keep in sync)
 - **All content is in Vietnamese** — maintain Vietnamese language and Hán-Việt terminology conventions throughout
