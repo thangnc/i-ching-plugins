@@ -58,3 +58,7 @@ Cách 3: Luận giải quẻ có sẵn
 ## Cài đặt
 
 Sao chép thư mục plugin vào `.claude/plugins/` hoặc cài qua marketplace.
+
+## Lưu ý
+
+Nên tắt **thinking mode** (extended thinking) khi dùng plugin này. Tính toán Lục Hào đã được hướng dẫn chi tiết từng bước trong commands — thinking mode không cần thiết và làm chậm phản hồi.
