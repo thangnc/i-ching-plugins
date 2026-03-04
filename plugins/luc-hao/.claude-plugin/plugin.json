@@ -1,0 +1,25 @@
+{
+  "name": "luc-hao",
+  "version": "1.0.0",
+  "description": "Gieo quẻ và luận giải Lục Hào Bát Quái theo phương pháp Mai Hoa Dịch Số — Vietnamese Six-Line I Ching divination with hexagram casting and interpretation.",
+  "author": {
+    "name": "thangnc"
+  },
+  "repository": "https://github.com/thangnc/i-ching-plugins",
+  "license": "MIT",
+  "keywords": [
+    "i-ching",
+    "divination",
+    "bat-quai",
+    "ngu-hanh",
+    "luc-hao",
+    "mai-hoa",
+    "tu-tru",
+    "vietnamese",
+    "fortune-telling",
+    "boi-toan",
+    "astrology"
+  ],
+  "skills": "../skills/",
+  "commands": "../commands/"
+}

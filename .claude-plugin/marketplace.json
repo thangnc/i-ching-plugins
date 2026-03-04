@@ -1,24 +1,36 @@
 {
-  "name": "luc-hao-bat-quai",
+  "name": "i-ching-plugins",
   "owner": {
     "name": "thangnc"
   },
   "metadata": {
-    "description": "Hệ thống luận giải quẻ Lục Hào theo Ngũ Hành Bát Quái — Vietnamese I Ching divination",
+    "description": "A collection of Vietnamese I Ching (Kinh Dịch) divination plugins for Claude — covering Lục Hào, Bát Quái, and related metaphysical arts.",
     "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "luc-hao-bat-quai",
-      "source": "./",
-      "description": "Hệ thống luận giải quẻ Lục Hào theo Ngũ Hành Bát Quái — Vietnamese I Ching divination and hexagram interpretation",
+      "name": "luc-hao",
+      "source": "../plugins/luc-hao/",
+      "description": "Gieo quẻ và luận giải Lục Hào Bát Quái theo phương pháp Mai Hoa Dịch Số — Vietnamese Six-Line I Ching divination with hexagram casting and interpretation.",
       "version": "1.0.0",
       "author": {
         "name": "thangnc"
       },
-      "repository": "https://github.com/thangnc/luc-hao-bat-quai",
+      "repository": "https://github.com/thangnc/i-ching-plugins",
       "license": "MIT",
-      "keywords": ["i-ching", "divination", "bat-quai", "ngu-hanh", "luc-hao", "vietnamese", "fortune-telling"]
+      "keywords": [
+        "i-ching",
+        "divination",
+        "bat-quai",
+        "ngu-hanh",
+        "luc-hao",
+        "mai-hoa",
+        "tu-tru",
+        "vietnamese",
+        "fortune-telling",
+        "boi-toan",
+        "astrology"
+      ]
     }
   ]
 }
